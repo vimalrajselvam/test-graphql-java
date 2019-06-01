@@ -52,3 +52,5 @@ variables.put("name", "Pikachu");
 ```
 
 Then you can use any HTTP Client and pass the `graphqlPayload` string as a body.
+
+A sample test can be found [here](https://github.com/vimalrajselvam/test-graphql-java/blob/master/src/test/java/com/vimalselvam/graphql/TestClass.java)
