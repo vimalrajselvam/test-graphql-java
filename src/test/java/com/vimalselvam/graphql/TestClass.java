@@ -1,8 +1,6 @@
 package com.vimalselvam.graphql;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,11 +9,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import okhttp3.*;
 
 /**
  * Test
@@ -23,6 +17,12 @@ import okhttp3.Response;
 public class TestClass {
     private static final OkHttpClient client = new OkHttpClient();
     private final String graphqlUri = "https://graphql-pokemon.now.sh/graphql";
+
+    private Response prepareResponse(String graphqlPayload) throws IOException {
+        RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), graphqlPayload);
+        Request request = new Request.Builder().url(graphqlUri).post(body).build();
+        return client.newCall(request).execute();
+    }
 
     @Test
     public void testGraphqlWithInputStream() throws IOException {
@@ -37,9 +37,7 @@ public class TestClass {
         String graphqlPayload = GraphqlTemplate.parseGraphql(iStream, variables);
 
         // Build and trigger the request
-        RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), graphqlPayload);
-        Request request = new Request.Builder().url(graphqlUri).post(body).build();
-        Response response = client.newCall(request).execute();
+        Response response = prepareResponse(graphqlPayload);
 
         Assert.assertEquals(response.code(), 200, "Response Code Assertion");
 
@@ -61,9 +59,7 @@ public class TestClass {
         String graphqlPayload = GraphqlTemplate.parseGraphql(file, variables);
 
         // Build and trigger the request
-        RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), graphqlPayload);
-        Request request = new Request.Builder().url(graphqlUri).post(body).build();
-        Response response = client.newCall(request).execute();
+        Response response = prepareResponse(graphqlPayload);
 
         Assert.assertEquals(response.code(), 200, "Response Code Assertion");
 
@@ -81,9 +77,7 @@ public class TestClass {
         String graphqlPayload = GraphqlTemplate.parseGraphql(file, null);
 
         // Build and trigger the request
-        RequestBody body = RequestBody.create(MediaType.get("application/json; charset=utf-8"), graphqlPayload);
-        Request request = new Request.Builder().url(graphqlUri).post(body).build();
-        Response response = client.newCall(request).execute();
+        Response response = prepareResponse(graphqlPayload);
 
         Assert.assertEquals(response.code(), 200, "Response Code Assertion");
 
