@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/vimalrajselvam/test-graphql-java.svg?branch=master)](https://travis-ci.org/vimalrajselvam/test-graphql-java)
+[![Build Status](https://travis-ci.org/vimalrajselvam/test-graphql-java.svg?branch=master)](https://travis-ci.org/vimalrajselvam/test-graphql-java)  [![Maven Central](https://img.shields.io/maven-central/v/com.vimalselvam/test-graphql-java.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.vimalselvam%22%20AND%20a:%22test-graphql-java%22)
 
 # Test GraphQL Java
 
