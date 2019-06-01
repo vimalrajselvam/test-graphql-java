@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vimalrajselvam/test-graphql-java.svg?branch=master)](https://travis-ci.org/vimalrajselvam/test-graphql-java)
+
 # Test GraphQL Java
 
 This library let's you to convert the `GraphQL` file to a simple string which can be used as a request payload using any HTTP client library.
