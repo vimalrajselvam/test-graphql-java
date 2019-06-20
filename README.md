@@ -4,7 +4,7 @@
 
 This library let's you to convert the `GraphQL` file to a simple string which can be used as a request payload using any HTTP client library.
 
-I've written this library for the simple `GraphQL` API Testing. There is a [graphql-java](https://github.com/graphql-java/graphql-java) library which let's you to implement `GraphQL` and test using Spring Boot. My main goal is not to introduce Spring Boot just for the sake of testing the `GraphQL` API. I wanted to keep it simple!
+I've written this library for the simple `GraphQL` API Testing. There is a [graphql-java](https://github.com/graphql-java/graphql-java) library which let's you to implement `GraphQL` server in Java. My main goal is not to introduce Spring Boot just for the sake of testing the `GraphQL` API. I wanted to keep it simple!
 
 To use this library, you can download from `Maven`:
 
